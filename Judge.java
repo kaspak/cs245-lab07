@@ -5,13 +5,13 @@ public class Judge {
         HashMap<Integer, Integer> candidates = new HashMap<Integer, Integer>();
 
         for (int[] pairs : trust) {
-            /* key = townJudgeCandidate, val = trusters */
-            if (!candidates.containsKey(pairs[1])) {
-                candidates.put(pairs[1], 1);
-            }
             /* if a candidate is found trusting, candidate gets removed */
             if (candidates.containsKey(pairs[0])) {
                 candidates.remove(pairs[0]);
+            }
+            /* key = townJudgeCandidate, val = trusters */
+            if (!candidates.containsKey(pairs[1])) {
+                candidates.put(pairs[1], 1);
             }
             /* increment number of people who trust the candidate judge */
             else if (candidates.containsKey(pairs[1])) {
